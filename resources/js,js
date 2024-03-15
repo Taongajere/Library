@@ -1,1 +1,52 @@
-console.log("hi")
+// Constructor for Book object
+function Book(title, author, publishYear) {
+    this.title = title;
+    this.author = author;
+    this.publishYear = publishYear;
+}
+
+// Array to store books
+var books = [];
+
+// Function to open the modal
+function openModal() {
+    document.getElementById("myModal").style.display = "block";
+}
+
+// Function to close the modal
+function closeModal() {
+    document.getElementById("myModal").style.display = "none";
+}
+
+// Function to add a book to the array and table
+function addBook() {
+    var title = document.getElementById("bookTitle").value;
+    var author = document.getElementById("bookAuthor").value;
+    var publishYear = document.getElementById("bookPublishYear").value;
+
+    if (title && author && publishYear ) {
+        var book = new Book(title, author, publishYear);
+        books.push(book);
+        addToTable(book);
+        closeModal(); // Close modal after adding book
+    } else {
+        alert("Please provide both title and author.");
+    }
+
+    
+}
+
+// Function to add a book to the table
+function addToTable(book) {
+    var table = document.getElementById("bookTable");
+    var row = table.insertRow(-1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    cell1.innerHTML = book.title;
+    cell2.innerHTML = book.author;
+    cell3.innerHTML = book.publishYear;
+
+    //display in console
+    console.log("book added to library:", books)
+}
