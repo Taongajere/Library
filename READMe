@@ -1,0 +1,5 @@
+this is a js library repo to learn how js objects work.
+REMEMBER, 
+    1.every object has a havded a prototype.
+    2.the prototype is another object.
+    3.Original object has access to prototype methods and properties. 
